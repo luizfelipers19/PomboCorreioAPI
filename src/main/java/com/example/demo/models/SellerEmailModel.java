@@ -2,21 +2,25 @@ package com.example.demo.models;
 
 
 import com.example.demo.enums.StatusEmail;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@NoArgsConstructor
-//@Builder
-@AllArgsConstructor
+@Data
 @Entity
-public class EmailModel implements Serializable{
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name="SELLER_EMAIL")
+@Builder
+public class SellerEmailModel extends EmailModel implements Serializable  {
 
 
+    private static final Long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,9 +29,10 @@ public class EmailModel implements Serializable{
     private String emailFrom;
     private String emailTo;
     private String subject;
-    //@Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String text;
     private LocalDateTime sendDateEmail;
     private StatusEmail statusEmail;
+
 
 }
