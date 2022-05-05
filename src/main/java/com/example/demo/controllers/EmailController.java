@@ -23,21 +23,38 @@ public class EmailController {
     EmailService emailService;
 
 
-    @PostMapping("/mail-to-buyer")
+    @PostMapping("/buyer-action-notify")
     public ResponseEntity<BuyerEmailModel> sendingMailToBuyer(@RequestBody @Valid EmailDTO emailDTO){
         EmailModel emailModel = new EmailModel();
         BeanUtils.copyProperties(emailDTO,emailModel);
-        BuyerEmailModel buyerEmail = emailService.sendEmailToBuyer(emailModel);
+        BuyerEmailModel buyerEmail = emailService.sendEmailToBuyer(emailModel, "buy");
         return new ResponseEntity<>(buyerEmail, HttpStatus.CREATED);
     }
 
-    @PostMapping("/mail-to-seller")
+    @PostMapping("/buyer-registration-notify")
+    public ResponseEntity<BuyerEmailModel> notifyBuyerRegistration(@RequestBody @Valid EmailDTO emailDTO){
+        EmailModel emailModel = new EmailModel();
+        BeanUtils.copyProperties(emailDTO,emailModel);
+        BuyerEmailModel buyerEmail = emailService.sendEmailToBuyer(emailModel, "registration");
+        return new ResponseEntity<>(buyerEmail, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/seller-action-notify")
     public ResponseEntity<SellerEmailModel> sendingMailToSeller(@RequestBody @Valid EmailDTO emailDTO){
         EmailModel emailModel = new EmailModel();
         BeanUtils.copyProperties(emailDTO,emailModel);
-        SellerEmailModel sellerEmail = emailService.sendEmailToSeller(emailModel);
+        SellerEmailModel sellerEmail = emailService.sendEmailToSeller(emailModel, "sell");
         return new ResponseEntity<>(sellerEmail, HttpStatus.CREATED);
     }
+
+    @PostMapping("/seller-registration-notify")
+    public ResponseEntity<SellerEmailModel> notifySellerRegistration(@RequestBody @Valid EmailDTO emailDTO) {
+        EmailModel emailModel = new EmailModel();
+        BeanUtils.copyProperties(emailDTO, emailModel);
+        SellerEmailModel sellerEmail = emailService.sendEmailToSeller(emailModel, "registration");
+        return new ResponseEntity<>(sellerEmail, HttpStatus.CREATED);
+    }
+
 
 
 }

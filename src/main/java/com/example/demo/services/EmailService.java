@@ -32,9 +32,9 @@ public class EmailService {
     private JavaMailSender emailSender;
 
 
-    public BuyerEmailModel sendEmailToBuyer(EmailModel emailModel) {
+    public BuyerEmailModel sendEmailToBuyer(EmailModel emailModel, String flag) {
 
-        BuyerEmailModel buyerEmailModel= EmailUtils.createBuyerEmailModel();
+        BuyerEmailModel buyerEmailModel= EmailUtils.createBuyerEmailModel(flag);
 
         buyerEmailModel.setSendDateEmail(LocalDateTime.now());
         buyerEmailModel.setEmailTo(emailModel.getEmailTo());
@@ -62,9 +62,9 @@ public class EmailService {
     }
 
 
-    public SellerEmailModel sendEmailToSeller(EmailModel emailModel) {
+    public SellerEmailModel sendEmailToSeller(EmailModel emailModel, String flag) {
 
-        SellerEmailModel sellerEmailModel= EmailUtils.createSellerEmailModel();
+        SellerEmailModel sellerEmailModel= EmailUtils.createSellerEmailModel(flag);
 
         sellerEmailModel.setSendDateEmail(LocalDateTime.now());
         sellerEmailModel.setEmailTo(emailModel.getEmailTo());

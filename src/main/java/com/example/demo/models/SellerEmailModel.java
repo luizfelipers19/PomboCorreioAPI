@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Data
 @Entity
@@ -17,14 +18,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Table(name="SELLER_EMAIL")
 @Builder
-public class SellerEmailModel extends EmailModel implements Serializable  {
+public class SellerEmailModel implements Serializable  {
 
 
     private static final Long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long emailId;
+    private UUID emailId;
     private String ownerRef;
     private String emailFrom;
     private String emailTo;
