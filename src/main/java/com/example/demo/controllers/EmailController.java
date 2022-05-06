@@ -25,7 +25,7 @@ public class EmailController {
     @Autowired
     EmailService emailService;
 
-    @ApiOperation(value = "This endpoint creates an inbound order thats supply all warehouse of the storage app.")
+    @ApiOperation(value = "This endpoint is responsible to send a notification to the buyer's email address, in order to inform him/her that a purchase was performed with his account.")
     @PostMapping("/buyer-action-notify")
     public ResponseEntity<BuyerEmailModel> sendingMailToBuyer(@RequestBody @Valid EmailDTO emailDTO){
         EmailModel emailModel = new EmailModel();
@@ -34,6 +34,7 @@ public class EmailController {
         return new ResponseEntity<>(buyerEmail, HttpStatus.CREATED);
     }
 
+    @ApiOperation(value = "This endpoint is responsible to send a notification to the buyer's email address, in order to inform him/her that an account was created.")
     @PostMapping("/buyer-registration-notify")
     public ResponseEntity<BuyerEmailModel> notifyBuyerRegistration(@RequestBody @Valid EmailDTO emailDTO){
         EmailModel emailModel = new EmailModel();
@@ -42,7 +43,7 @@ public class EmailController {
         return new ResponseEntity<>(buyerEmail, HttpStatus.CREATED);
     }
 
-    @PostMapping("/seller-action-notify")
+    @ApiOperation(value = "This endpoint is responsible to send a notification to the buyer's email address, in order to inform him/her that a sell was performed with a product sold by him.")
     public ResponseEntity<SellerEmailModel> sendingMailToSeller(@RequestBody @Valid EmailDTO emailDTO){
         EmailModel emailModel = new EmailModel();
         BeanUtils.copyProperties(emailDTO,emailModel);
@@ -50,6 +51,7 @@ public class EmailController {
         return new ResponseEntity<>(sellerEmail, HttpStatus.CREATED);
     }
 
+    @ApiOperation(value = "This endpoint is responsible to send a notification to the buyer's email address, in order to inform him/her that an account was created.")
     @PostMapping("/seller-registration-notify")
     public ResponseEntity<SellerEmailModel> notifySellerRegistration(@RequestBody @Valid EmailDTO emailDTO) {
         EmailModel emailModel = new EmailModel();
