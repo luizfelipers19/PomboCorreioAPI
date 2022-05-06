@@ -9,6 +9,7 @@ import com.example.demo.repositories.IBuyerEmailRepository;
 
 import com.example.demo.repositories.ISellerEmailRepository;
 import com.example.demo.utils.EmailUtils;
+import lombok.AllArgsConstructor;
 import org.apache.tomcat.jni.Local;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
@@ -20,6 +21,7 @@ import javax.validation.constraints.Email;
 import java.time.LocalDateTime;
 
 @Service
+@AllArgsConstructor
 public class EmailService {
 
     @Autowired
@@ -37,6 +39,7 @@ public class EmailService {
         BuyerEmailModel buyerEmailModel= EmailUtils.createBuyerEmailModel(flag);
 
         buyerEmailModel.setSendDateEmail(LocalDateTime.now());
+        buyerEmailModel.setName(emailModel.getName());
         buyerEmailModel.setEmailTo(emailModel.getEmailTo());
         buyerEmailModel.setOwnerRef(emailModel.getOwnerRef());
         SimpleMailMessage message = new SimpleMailMessage();
@@ -67,6 +70,7 @@ public class EmailService {
         SellerEmailModel sellerEmailModel= EmailUtils.createSellerEmailModel(flag);
 
         sellerEmailModel.setSendDateEmail(LocalDateTime.now());
+        sellerEmailModel.setName(emailModel.getName());
         sellerEmailModel.setEmailTo(emailModel.getEmailTo());
         sellerEmailModel.setOwnerRef(emailModel.getOwnerRef());
         SimpleMailMessage message = new SimpleMailMessage();

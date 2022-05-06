@@ -28,6 +28,7 @@ public class BuyerEmailModel implements Serializable  {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID emailId;
     private String ownerRef;
+    private String name;
     private String emailFrom;
     private String emailTo;
     private String subject;

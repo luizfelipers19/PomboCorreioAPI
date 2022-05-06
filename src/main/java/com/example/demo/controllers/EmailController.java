@@ -6,6 +6,8 @@ import com.example.demo.models.BuyerEmailModel;
 import com.example.demo.models.EmailModel;
 import com.example.demo.models.SellerEmailModel;
 import com.example.demo.services.EmailService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,12 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
+@Api(value = "Notifications")
 public class EmailController {
 
     @Autowired
     EmailService emailService;
 
-
+    @ApiOperation(value = "This endpoint creates an inbound order thats supply all warehouse of the storage app.")
     @PostMapping("/buyer-action-notify")
     public ResponseEntity<BuyerEmailModel> sendingMailToBuyer(@RequestBody @Valid EmailDTO emailDTO){
         EmailModel emailModel = new EmailModel();
