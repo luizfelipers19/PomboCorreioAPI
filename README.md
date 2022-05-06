@@ -44,17 +44,17 @@ Palavras-chave: email, notificação, microserviços, API, usuário, compra, cad
 - https://github.com/mateusvictor/Projeto-Integrador-Meli/tree/requisito6/luiz
 
 ### Links
-* [Link do User Story](./doc/user-story.pdf)
-* [Collections Postman](./doc/postman.json)
+* [Link do User Story](./doc/Requisito6Luiz.pdf)
+* [Collections Postman](./doc/EmailNotificationRequests.postman_collection.json)
 
 
-<!---
+
 ### Tabelas criadas
-![Database Schema Video - V1.0](./screenshots/requisito-6-rodrigo.png)
+![EmailSenderSchema](./doc/dbschema.png)
 
 ### Swagger
-![Database Schema Video - V1.0](./screenshots/routes-requisito-6-rodrigo.png)
--->
+![EmailSenderSwagger](./doc/swagger.png)
+
 
 ### Controller principal
 O controller principal desse requisito é `EmailController.java`. Esse controller será acessado através de requisições partindo da nossa API principal, linkado anteriormente.
@@ -114,13 +114,4 @@ O controller principal desse requisito é `EmailController.java`. Esse controlle
     
 
 ---
-### Banco de Dados
-
-* [Database Schema - V2.0](./screenshots/db-schema-v2.png)
-* Diagrama de entidade de relacionamento (DER)
-
-![Diagrama de entidade de relacionamento (DER)](./screenshots/db-schema-v2.png)
-
-
-<p align="right">(<a href="#top">voltar ao topo</a>)</p>
 

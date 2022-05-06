@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "69a6bf1a-13c7-498d-9916-876c502ee40a",
+		"name": "EmailNotificationRequests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BuyerActionNotify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ownerRef\": \"id do usuário\",\n    \"name\": \"Nome do comprador\",\n    \"emailTo\": \"emaildocomprador@provedordeemail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8082/buyer-action-notify",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"buyer-action-notify"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuyerRegistrationNotify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ownerRef\": \"id do usuário\",\n    \"name\": \"Nome do comprador\",\n    \"emailTo\": \"emaildocomprador@provedordeemail.com\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/buyer-registration-notify",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"buyer-registration-notify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SellerRegistrationNotify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ownerRef\": \"id do usuário\",\n    \"name\": \"Nome do vendedor\",\n    \"emailTo\": \"emaildocomprador@provedordeemail.com\"\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/seller-registration-notify",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"seller-registration-notify"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
